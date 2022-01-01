@@ -21,7 +21,7 @@ local theme = lush(function()
 
     Normal       { bg = palette.bg_0, fg = palette.fg_0 },
     Comment      { fg = palette.dim_0 },
-    NormalFloat  { Normal }, -- Normal text in floating windows.
+    NormalFloat  { bg = palette.bg_1, fg = Normal.fg }, -- Normal text in floating windows.
     FloatBorder     { bg = palette.bg_0, fg = palette.dim_0 }, -- Border of floating windows
     -- Conceal      { }, -- placeholder characters substituted for concealed text (see 'conceallevel')
     Cursor       { Reverse }, -- character under the cursor
