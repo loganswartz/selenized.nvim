@@ -1,6 +1,6 @@
 # selenized.nvim
 The [Selenized](https://github.com/jan-warchol/selenized) colorscheme, adapted
-for Neovim using [Lush](http://git.io/lush.nvim).
+for Neovim using [Lush](https://github.com/rktjmp/lush.nvim).
 
 ## About
 See [Jan Warchol's repo](https://github.com/jan-warchol/selenized) for in-depth
