@@ -2,8 +2,10 @@
 The [Selenized](https://github.com/jan-warchol/selenized) colorscheme, adapted
 for Neovim using [Lush](https://github.com/rktjmp/lush.nvim).
 
+![Selenized normal-dark preview](screenshots/normal-dark-python-preview.png)
+
 ## About
-See [Jan Warchol's repo](https://github.com/jan-warchol/selenized) for in-depth
+See [Jan Warchoł's repo](https://github.com/jan-warchol/selenized) for in-depth
 information on the actual colorscheme. All colors used are pulled directly, and
 unchanged, from Jan's repo. The only thing I did was convert the HSB (aka, HSV)
 values to HSL, for use with Lush.
@@ -83,3 +85,7 @@ can switch between colorschemes easily via `:colorscheme whatever` without
 needing to go in and manually change the Lualine theme too. You can however
 specify `theme = "selenized"` explicitly to always use the selenized lualine
 theme regardless of the current vim theme.
+
+## Misc
+The colors were ported from the main Selenized repo using
+[convert.py](utils/convert.py), see usage [here](utils/).
