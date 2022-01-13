@@ -21,8 +21,8 @@ local theme = lush(function()
 
     Normal         { bg = palette.bg_0, fg = palette.fg_0 },
     Comment        { fg = palette.dim_0 },
-    NormalFloat    { bg = palette.bg_0, fg = Normal.fg }, -- Normal text in floating windows.
-    FloatBorder       { bg = palette.bg_0, fg = palette.dim_0 }, -- Border of floating windows
+    NormalFloat    { bg = palette.bg_1, fg = Normal.fg }, -- Normal text in floating windows.
+    FloatBorder       { bg = palette.bg_1, fg = palette.dim_0 }, -- Border of floating windows
     -- Conceal        { }, -- placeholder characters substituted for concealed text (see 'conceallevel')
     Cursor         { Reverse }, -- character under the cursor
     -- lCursor        { }, -- the character under the cursor when |language-mapping| is used (see 'guicursor')
@@ -155,6 +155,8 @@ local theme = lush(function()
     LspDiagnosticsVirtualTextWarning     { LspDiagnosticsWarning },
     LspDiagnosticsVirtualTextInformation { LspDiagnosticsInformation },
     LspDiagnosticsVirtualTextHint        { LspDiagnosticsHint },
+
+    LspSignatureActiveParameter          { WildMenu },
 
     -- These groups are for the neovim tree-sitter highlights.
     -- As of writing, tree-sitter support is a WIP, group names may change.

@@ -2,7 +2,7 @@
 The [Selenized](https://github.com/jan-warchol/selenized) colorscheme, adapted
 for Neovim using [Lush](https://github.com/rktjmp/lush.nvim).
 
-![Selenized normal-dark preview](screenshots/normal-dark-python-preview.png)
+![Preview of all variants](screenshots/preview.gif)
 
 ## About
 See [Jan Warchoł's repo](https://github.com/jan-warchol/selenized) for in-depth
