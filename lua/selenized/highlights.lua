@@ -251,6 +251,10 @@ local theme = lush(function()
     GitSignsAdd    { bg = Normal.bg, fg = DiffAdd.fg },
     GitSignsChange { bg = Normal.bg, fg = DiffChange.fg },
     GitSignsDelete { bg = Normal.bg, fg = DiffDelete.fg },
+
+    -- tpope/vim-fugitive
+    gitcommitSummary { Identifier },
+    gitcommitOverflow { DiagnosticWarn },
   }
 end)
 
