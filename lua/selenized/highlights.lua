@@ -42,7 +42,7 @@ local theme = lush(function()
     SignColumn     { bg = palette.bg_0 }, -- column where |signs| are displayed
     LineNr         { Comment },
     -- Substitute     { }, -- |:substitute| replacement text highlighting
-    MatchParen     { bg = palette.dim_0 }, -- The character under the cursor or just before it, if it is a paired bracket, and its match. |pi_paren.txt|
+    MatchParen     { bg = palette.bg_2 }, -- The character under the cursor or just before it, if it is a paired bracket, and its match. |pi_paren.txt|
     -- ModeMsg        { }, -- 'showmode' message (e.g., "-- INSERT -- ")
     -- MsgArea        { }, -- Area for messages and cmdline
     -- MsgSeparator   { }, -- Separator for scrolled messages, `msgsep` flag of 'display'
