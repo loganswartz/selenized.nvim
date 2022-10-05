@@ -40,6 +40,9 @@ local theme = lush(function()
     ColorColumn    { bg = palette.bg_1 }, -- used for the columns set with 'colorcolumn'
     FoldColumn     { bg = palette.bg_1, fg = palette.fg_0 }, -- 'foldcolumn'
     SignColumn     { bg = palette.bg_0 }, -- column where |signs| are displayed
+    CursorColumn   { bg = palette.bg_1 }, -- used for the columns set with 'cursorcolumn'
+    CursorLine     { bg = palette.bg_1 }, -- used for the row set with 'cursorline'
+    CursorLineNr   { fg = palette.br_violet, bg = palette.bg_1 }, -- used for the row set with 'cursorline'
     LineNr         { Comment },
     -- Substitute     { }, -- |:substitute| replacement text highlighting
     MatchParen     { bg = palette.bg_2 }, -- The character under the cursor or just before it, if it is a paired bracket, and its match. |pi_paren.txt|
