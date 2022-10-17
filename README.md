@@ -29,6 +29,19 @@ One-Dark, the theme I used previously).
 Finally, this version supports more highlight groups (diagnostics, Treesitter
 groups, etc) and has some slightly saner defaults.
 
+#### Quick note on Treesitter groups
+Version `[63d4896](https://github.com/loganswartz/selenized.nvim/commit/63d4896d74be9aecd61df55a7c03bb45ad351a73)`
+of this plugin is the last version to use the old `TS*` style Treesitter
+highlight groups. Going forward, we'll use the new group naming scheme.
+
+This means using Treesitter-based highlights after commit
+`[63d4896](https://github.com/loganswartz/selenized.nvim/commit/63d4896d74be9aecd61df55a7c03bb45ad351a73)`
+will require Neovim 0.8+.
+
+See [this comment](https://github.com/nvim-treesitter/nvim-treesitter/issues/2293#issuecomment-1279974776)
+and [this commit](https://github.com/nvim-treesitter/nvim-treesitter/commit/42ab95d5e11f247c6f0c8f5181b02e816caa4a4f)
+on nvim-treesitter for more info.
+
 ## Installation
 Using packer.nvim:
 ```lua
