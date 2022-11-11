@@ -70,8 +70,8 @@ local theme = lush(function(injected_functions)
 
         Normal             { bg = palette.bg_0, fg = palette.fg_0 },
         Comment            { fg = palette.dim_0 },
-        NormalFloat        { bg = palette.bg_2, fg = Normal.fg }, -- Normal text in floating windows.
-        FloatBorder        { bg = palette.bg_2, fg = palette.dim_0 }, -- Border of floating windows
+        NormalFloat        { fg = Normal.fg }, -- Normal text in floating windows.
+        FloatBorder        { fg = palette.dim_0 }, -- Border of floating windows
         -- Conceal            { }, -- placeholder characters substituted for concealed text (see 'conceallevel')
         Cursor             { Reverse }, -- character under the cursor
         -- lCursor            { }, -- the character under the cursor when |language-mapping| is used (see 'guicursor')
