@@ -26,6 +26,16 @@ local theme = lush(function(injected_functions)
 
         -- Uncomment and edit if you want more specific syntax highlighting.
 
+        Normal             { bg = palette.bg_0, fg = palette.fg_0 },
+        Comment            { fg = palette.dim_0 },
+        NormalFloat        { fg = Normal.fg }, -- Normal text in floating windows.
+        FloatBorder        { fg = palette.dim_0 }, -- Border of floating windows
+        -- Conceal            { }, -- placeholder characters substituted for concealed text (see 'conceallevel')
+        Cursor             { Reverse }, -- character under the cursor
+        -- lCursor            { }, -- the character under the cursor when |language-mapping| is used (see 'guicursor')
+        -- CursorIM           { }, -- like Cursor, but used when in IME mode |CursorIM|
+        Directory          { fg = palette.cyan }, -- directory names (and other special names in listings)
+
         Constant           { fg = palette.cyan }, -- (preferred) any constant
         String             { fg = palette.green }, --   a string constant: "this is a string"
         Character          { fg = palette.magenta }, --  a character constant: 'c', '\n'
@@ -68,16 +78,6 @@ local theme = lush(function(injected_functions)
         Todo               { fg = palette.br_red, Standout }, -- (preferred) anything that needs extra attention; mostly the keywords TODO FIXME and XXX
         Error              { fg = palette.br_red }, -- (preferred) any erroneous construct
 
-        Normal             { bg = palette.bg_0, fg = palette.fg_0 },
-        Comment            { fg = palette.dim_0 },
-        NormalFloat        { fg = Normal.fg }, -- Normal text in floating windows.
-        FloatBorder        { fg = palette.dim_0 }, -- Border of floating windows
-        -- Conceal            { }, -- placeholder characters substituted for concealed text (see 'conceallevel')
-        Cursor             { Reverse }, -- character under the cursor
-        -- lCursor            { }, -- the character under the cursor when |language-mapping| is used (see 'guicursor')
-        -- CursorIM           { }, -- like Cursor, but used when in IME mode |CursorIM|
-        Directory          { fg = palette.cyan }, -- directory names (and other special names in listings)
-
         -- Git
         diffFile           { fg = palette.fg_1, Bold },
         diffIndexLine      { Identifier, gui = Italic.gui },
@@ -89,7 +89,7 @@ local theme = lush(function(injected_functions)
         DiffDelete         { diffRemoved },
         DiffText           { fg = palette.red, Reverse }, -- diff mode: Changed text within a changed line |diff.txt|
         diffLine           { Constant },
-        diffSubname        { Normal },
+        diffSubname        { fg = Normal.fg },
         diffOldFile        { bg = palette.bg_1, fg = DiffDelete.fg },
         diffNewFile        { bg = palette.bg_1, fg = DiffAdd.fg },
 
@@ -250,8 +250,8 @@ local theme = lush(function(injected_functions)
 
         -- sym("@storageclass")          { }, -- visibility/life-time/etc. modifiers (e.g. `static`)
         -- sym("@attribute")             { }, -- attribute annotations (e.g. Python decorators)
-        -- sym("@field")                 { }, -- object and struct fields
-        -- sym("@property")              { }, -- similar to `@field`
+        sym("@field")                 { fg = Normal.fg }, -- object and struct fields
+        sym("@property")              { sym("@field") }, -- similar to `@field`
 
         -- }}}
         --- Identifiers {{{
@@ -287,9 +287,9 @@ local theme = lush(function(injected_functions)
 
         -- }}}
         --- Tags {{{
-        -- sym("@tag")                   { }, -- XML tag names
-        -- sym("@tag.attribute")         { }, -- XML tag attributes
-        -- sym("@tag.delimiter")         { }, -- XML tag delimiters
+        sym("@tag")                   { fg = palette.red }, -- XML tag names
+        sym("@tag.attribute")         { Identifier }, -- XML tag attributes
+        sym("@tag.delimiter")         { fg = palette.yellow }, -- XML tag delimiters
 
         -- }}}
         -- }}}
