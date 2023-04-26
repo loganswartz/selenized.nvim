@@ -285,6 +285,9 @@ local theme = lush(function(injected_functions)
         sym("@text.warning")          { Todo, fg = DiagnosticWarn.fg }, -- warning notes
         sym("@text.danger")           { Todo, fg = DiagnosticError.fg }, -- danger/error notes
 
+        sym("@text.diff.add")         { diffAdded },   -- diff mode: Added line
+        sym("@text.diff.delete")      { diffRemoved }, -- diff mode: Deleted line
+
         -- }}}
         --- Tags {{{
         sym("@tag")                   { fg = palette.red }, -- XML tag names
