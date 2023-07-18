@@ -12,7 +12,7 @@ local theme = lush(function(injected_functions)
     return {
         ---- GUI features --------------------------- {{{
         Strikethrough      { gui = "strikethrough" },
-        Underlined         { gui = "underline" }, -- (preferred) text that stands out, HTML links
+        Underlined         { gui = "underline" },
         Undercurl          { gui = "undercurl" },
         Reverse            { gui = "reverse" },
         Inverse            { gui = "inverse" },
@@ -178,6 +178,7 @@ local theme = lush(function(injected_functions)
         LspDiagnosticsVirtualTextHint        { LspDiagnosticsHint },
 
         LspSignatureActiveParameter          { WildMenu },
+        LspInlayHint                         { fg = Comment.fg, bg = CursorLine.bg, gui = Italic.gui }, -- LSP-provided inlay hints
         -- }}}
         ---- Treesitter groups ---------------------- {{{
         -- These groups are for the neovim tree-sitter highlights.
