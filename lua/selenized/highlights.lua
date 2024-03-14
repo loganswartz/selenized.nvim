@@ -191,29 +191,28 @@ local theme = lush(function(injected_functions)
         -- sym("@comment")               { }, -- line and block comments
         sym("@error")                 { Error }, -- syntax/parser errors
         -- sym("@none")                  { }, -- completely disable the highlight
-        -- sym("@preproc")               { }, -- various preprocessor directives & shebangs
-        -- sym("@define")                { }, -- preprocessor definition directives
+        -- sym("@keyword.directive")     { }, -- various preprocessor directives & shebangs
+        -- sym("@keyword.directive.define") { }, -- preprocessor definition directives
         -- sym("@operator")              { }, -- symbolic operators (e.g. `+` / `*`)
 
         -- }}}
         --- Punctuation {{{
         -- sym("@punctuation.delimiter") { }, -- For delimiters ie: `.`
         -- sym("@punctuation.bracket")   { }, -- For brackets and parens.
-        -- sym("@punctuation.special")   { }, -- For special punctuation that does not fall in the categories before.
+        -- sym("@punctuation.special")   { }, -- eg `{}` in string interpolation
 
         -- }}}
         --- Literals {{{
         -- sym("@string")                { }, -- string literals
-        -- sym("@string.regex")          { }, -- regular expressions
+        -- sym("@string.regexp")         { }, -- regular expressions
         -- sym("@string.escape")         { }, -- escape sequences
-        -- sym("@string.special")        { }, -- other special strings (e.g. dates)
 
         -- sym("@character")             { }, -- character literals
         -- sym("@character.special")     { }, -- special characters (e.g. wildcards)
 
         -- sym("@boolean")               { }, -- boolean literals
         -- sym("@number")                { }, -- numeric literals
-        -- sym("@float")                 { }, -- floating-point number literals
+        -- sym("@number.float")          { }, -- floating-point number literals
 
         -- }}}
         --- Functions {{{
@@ -222,11 +221,11 @@ local theme = lush(function(injected_functions)
         -- sym("@function.call")         { }, -- function calls
         -- sym("@function.macro")        { }, -- preprocessor macros
 
-        -- sym("@method")                { }, -- method definitions
-        -- sym("@method.call")           { }, -- method calls
+        -- sym("@function.method")       { }, -- method definitions
+        -- sym("@function.method.call")  { }, -- method calls
 
         sym("@constructor") { Type }, -- constructor calls and definitions
-        -- sym("@parameter")             { }, -- parameters of a function
+        -- sym("@variable.parameter")    { }, -- parameters of a function
 
         -- }}}
         --- Keywords {{{
@@ -235,12 +234,12 @@ local theme = lush(function(injected_functions)
         -- sym("@keyword.operator")      { }, -- operators that are English words (e.g. `and` / `or`)
         -- sym("@keyword.return")        { }, -- keywords like `return` and `yield`
 
-        -- sym("@conditional")           { }, -- keywords related to conditionals (e.g. `if` / `else`)
-        -- sym("@repeat")                { }, -- keywords related to loops (e.g. `for` / `while`)
-        -- sym("@debug")                 { }, -- keywords related to debugging
+        -- sym("@keyword.conditional")   { }, -- keywords related to conditionals (e.g. `if` / `else`)
+        -- sym("@keyword.repeat")        { }, -- keywords related to loops (e.g. `for` / `while`)
+        -- sym("@keyword.debug")         { }, -- keywords related to debugging
         -- sym("@label")                 { }, -- GOTO and other labels (e.g. `label:` in C)
-        -- sym("@include")               { }, -- keywords for including modules (e.g. `import` / `from` in Python)
-        -- sym("@exception")             { }, -- keywords related to exceptions (e.g. `throw` / `catch`)
+        -- sym("@keyword.import")        { }, -- keywords for including modules (e.g. `import` / `from` in Python)
+        -- sym("@keyword.exception")     { }, -- keywords related to exceptions (e.g. `throw` / `catch`)
 
         -- }}}
         --- Types {{{
@@ -249,10 +248,10 @@ local theme = lush(function(injected_functions)
         -- sym("@type.definition")       { }, -- type definitions (e.g. `typedef` in C)
         -- sym("@type.qualifier")        { }, -- type qualifiers (e.g. `const`)
 
-        -- sym("@storageclass")          { }, -- visibility/life-time/etc. modifiers (e.g. `static`)
+        -- sym("@keyword.storage")       { }, -- visibility/life-time/etc. modifiers (e.g. `static`)
         -- sym("@attribute")             { }, -- attribute annotations (e.g. Python decorators)
-        sym("@field")                 { fg = Normal.fg }, -- object and struct fields
-        sym("@property")              { sym("@field") }, -- similar to `@field`
+        sym("@variable.member")       { fg = Normal.fg }, -- object and struct fields
+        sym("@property")              { sym("@variable.member") }, -- similar to `@variable.member`
 
         -- }}}
         --- Identifiers {{{
@@ -263,31 +262,38 @@ local theme = lush(function(injected_functions)
         -- sym("@constant.builtin")      { }, -- built-in constant values
         -- sym("@constant.macro")        { }, -- constants defined by the preprocessor")
 
-        -- sym("@namespace")             { }, -- modules or namespaces
-        -- sym("@symbol")                { }, -- symbols or atoms
+        -- sym("@module")                { }, -- modules or namespaces
+        -- sym("@string.special.symbol") { }, -- symbols or atoms
+        -- sym("@string.special.url")    { Underlined }, -- URIs outside markup
 
         -- }}}
         --- Text {{{
-        -- sym("@text")                  { }, -- non-structured text
-        sym("@text.strong") { Bold }, -- bold text
-        sym("@text.emphasis") { Bold }, -- text with emphasis
-        -- sym("@text.underline")        { }, -- underlined text
-        sym("@text.strike") { Strikethrough }, -- strikethrough text
-        sym("@text.title")            { Title }, -- text that is part of a title
-        -- sym("@text.literal")          { }, -- literal or verbatim text
-        sym("@text.uri") { Underlined }, -- URIs (e.g. hyperlinks)
-        -- sym("@text.math")             { }, -- math environments (e.g. `$ ... $` in LaTeX)
-        -- sym("@text.environment")      { }, -- text environments of markup languages
-        -- sym("@text.environment.name") { }, -- text indicating the type of an environment
-        -- sym("@text.reference")        { }, -- text references, footnotes, citations, etc.
+        -- sym("@markup")                { }, -- non-structured text
+        sym("@markup.strong")         { Bold }, -- bold text
+        sym("@markup.italic")         { Italic }, -- text with emphasis
+        sym("@markup.underline")      { Underlined }, -- underlined text
+        sym("@markup.strikethrough")  { Strikethrough }, -- strikethrough text
+        sym("@markup.heading")        { Title }, -- text that is part of a title
+        -- sym("@markup.raw")            { }, -- literal or verbatim text
+        -- sym("@markup.quote")          { }, -- block quotes
+        -- sym("@markup.math")           { }, -- math environments (e.g. `$ ... $` in LaTeX)
+        -- sym("@markup.environment")    { }, -- text environments of markup languages
+        -- sym("@markup.environment.name") { }, -- text indicating the type of an environment
+        -- sym("@markup.link")           { }, -- text references, footnotes, citations, etc.
+        -- sym("@markup.link.label")     { }, -- link, reference descriptions
+        sym("@markup.link.url")       { Underlined }, -- URL-style links
+        sym("@markup.list")           { Statement }, -- list markers
+        sym("@markup.list.checked")   { fg = palette.green }, -- checked todo-style list markers
+        sym("@markup.list.unchecked") { fg = palette.red }, -- unchecked todo-style list markers
 
-        sym("@text.todo")             { Todo, fg = DiagnosticHint.fg }, -- todo notes
-        sym("@text.note")             { Todo, fg = DiagnosticInfo.fg }, -- info notes
-        sym("@text.warning")          { Todo, fg = DiagnosticWarn.fg }, -- warning notes
-        sym("@text.danger")           { Todo, fg = DiagnosticError.fg }, -- danger/error notes
+        sym("@comment.todo")          { Todo, fg = DiagnosticHint.fg }, -- todo notes
+        sym("@comment.note")          { Todo, fg = DiagnosticInfo.fg }, -- info notes
+        sym("@comment.warning")       { Todo, fg = DiagnosticWarn.fg }, -- warning notes
+        sym("@comment.error")         { Todo, fg = DiagnosticError.fg }, -- danger/error notes
 
-        sym("@text.diff.add")         { diffAdded },   -- diff mode: Added line
-        sym("@text.diff.delete")      { diffRemoved }, -- diff mode: Deleted line
+        sym("@diff.plus")             { diffAdded },   -- diff mode: Added line
+        sym("@diff.minus")            { diffRemoved }, -- diff mode: Deleted line
+        sym("@diff.delta")            { diffChanged }, -- diff mode: Changed line
 
         -- }}}
         --- Tags {{{
